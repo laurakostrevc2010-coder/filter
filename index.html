@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="sl">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+ <title>Foto filter 2026</title>
+ <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+ <header class="topbar">
+ <h1>Foto filter</h1>
+ <p>📸 posname + 🔄obrne kamero • 9:16</p>
+ </header>
+ <!-- 9:16 oder (preview) -->
+ <main class="app">
+ <section class="stage" aria-label="Predogled kamere">
+ <!-- Video mora biti playsinline za iOS, da ne gre v fullscreen -->
+ <video id="video" autoplay muted playsinline></video>
+ <!-- Overlay PNG iz root mape -->
+ <img id="overlay" src="filter2026.png" alt="Filter overlay" />
+ <!-- Nežen "status" overlay -->
+ <div id="status" class="status" role="status" aria-live="polite"></div>
+ </section>
+ <section class="controls" aria-label="Kontrole">
+ <button id="btnShot" class="btn primary" type="button">📸Fotografiraj</button>
+ <button id="btnFlip" class="btn" type="button">🔄Obrni kamero</button>
+ </section>
+ <section class="tips" aria-label="Namigi">
+ <div class="tip">
+ <strong>Namig:</strong> Na iPhonu se slika po zajemu odpre v predogledu – nato uporabi “Share/Save Image”.
+ </div>
+ </section>
+ </main>
+ <!-- iOS / fallback modal za ročno shranjevanje -->
+ <div id="modal" class="modal" hidden>
+ <div class="modal__backdrop" id="modalBackdrop" aria-hidden="true"></div>
+ <div class="modal__panel" role="dialog" aria-modal="true" aria-label="Predogled fotografije">
+ <div class="modal__header">
+ <h2>Predogled</h2>
+ <button id="btnClose" class="btn small" type="button" aria-label="Zapri">✕</button>
+ </div>
+ <div class="modal__body">
+ <img id="previewImg" alt="Zajeta fotografija" />
+ </div>
+ <div class="modal__footer">
+ <button id="btnOpenNewTab" class="btn" type="button">Odpri sliko v novem zavihku</button>
+ <div class="modal__help">
+ <strong>iPhone/iPad:</strong> ko se slika odpre, tapni <em>Share</em> → <em>Save Image</em>
+ (ali na sliki drži prst → “Add to Photos”, če je na voljo).
+ </div>
+ </div>
+ </div>
+ </div>
+ <script src="script.js"></script>
+</body>
+</html>
